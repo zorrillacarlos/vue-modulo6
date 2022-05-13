@@ -44,6 +44,12 @@ const routes = [
     name: 'router',
     component: () => import('../views/RouterView.vue')
   },
+  {
+    path: '/router/:id',
+    name: 'routerID',
+    component: () => import('../views/RouterView.vue')
+  },
+  
 ]
 
 const router = new VueRouter({

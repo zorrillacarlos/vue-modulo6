@@ -2,6 +2,8 @@
   <div id="app">
     <Nav class="sticky-top"/>
     <transition name="view">
+<!--  router-view
+      El componenterouter-view representa un componente específico en función de la ubicación de la aplicación, según lo dictado en la instancia del router. -->
       <router-view />
     </transition>
   </div>
