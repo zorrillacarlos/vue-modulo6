@@ -1,10 +1,6 @@
 <template>
-  <div class="container">
+  <div class="container mb-5">
     <Router />
-    
-    <!-- router-link
-    El componenterouter-link permite al usuario cambiar la ubicación del navegador sin tener que volver a cargar este. -->
-
     <router-link
       :to="{ name: 'routerID', params: { id: item } }"
       v-for="(item, index) in numeroArreglos"
