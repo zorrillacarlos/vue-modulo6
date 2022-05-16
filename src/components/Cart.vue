@@ -1,22 +1,36 @@
 <template>
+
   <div class="container mb-5">
+
     <h2>Cart</h2>
-    <ul v-for="item in baseDeDatos" :key="item.name">
+
+    <ul v-for="(item, index) in baseDeDatos" :key="index">
       <li>{{ item.nombre }} - Precio: {{ item.precio }}$</li>
+
       <button class="btn btn-danger" @click="agregarCarrito(item)">
-        Agregar al carrito
-      </button>
+        Agregar al carrito</button>
     </ul>
-    <h2>Carrito</h2>
-    <div v-for="(item, index) in carrito" :key="index">
-      <div>{{ item.nombre }} - cantidad {{item.cantidad}}</div>
-    </div>
+
+<button>ABRIR CARRITO</button>
+
+
+
+<ModalCarrito :carritoProps='carrito' />
+
   </div>
+
+
 </template>
 
 <script>
+
+import ModalCarrito from '@/components/ModalCarrito.vue'
+
 export default {
   name: "Cart",
+  components:{
+    ModalCarrito
+  },
 
   data() {
     return {
@@ -46,21 +60,15 @@ export default {
           imagen: "fresas.jpg",
         },
       ],
+
       carrito: [],
+      nombre:'Nicole'
     };
   },
 
   methods: {
     agregarCarrito(item) {
-        let encontrar = this.carrito.some (product => product.id == item.id)
-
-        if(encontrar){
-          item.cantidad ++
-        }else {
         this.carrito.push(item)
-        item.cantidad = 1
-        }
-
     },
   },
 
